@@ -1,0 +1,118 @@
+To estimate the expected win rate for a bid response at a given price based on the provided table, follow these steps:
+
+### Assumptions:
+1. The win rate is defined as the number of winning bids divided by the total number of bids at a given price.
+2. The data provided in the table accurately represents the historical outcomes of the auctions.
+3. The win rate for each bid price can be calculated using the formula: 
+Win Rate= (Number of Wins/Total Number of Bids).
+
+### Data Extraction:
+We will extract the number of bids and wins for each bid price from the table.
+
+### Steps:
+1. Aggregate the number of bids (events) and wins for each bid price.
+2. Calculate the win rate for each bid price.
+
+Here is the table provided in the scenario:
+
+| app | bid_price | win | events |
+|-----|-----------|-----|--------|
+| A   | 0.01      | 0   | 100000 |
+| A   | 0.01      | 1   | 0      |
+| A   | 0.1       | 0   | 7000   |
+| A   | 0.1       | 1   | 3000   |
+| A   | 0.2       | 0   | 8000000|
+| A   | 0.2       | 1   | 2000000|
+| A   | 0.4       | 0   | 700000 |
+| A   | 0.4       | 1   | 300000 |
+| A   | 0.5       | 0   | 80000  |
+| A   | 0.5       | 1   | 20000  |
+| A   | 0.75      | 0   | 7000   |
+| A   | 0.75      | 1   | 3000   |
+| A   | 1         | 0   | 400    |
+| A   | 1         | 1   | 600    |
+| A   | 2         | 0   | 30     |
+| A   | 2         | 1   | 70     |
+| A   | 5         | 0   | 2      |
+| A   | 5         | 1   | 8      |
+| A   | 9         | 0   | 0      |
+| A   | 9         | 1   | 1      |
+
+### Calculation:
+
+For each bid price, we need to:
+1. Sum the events for win = 0 and win = 1.
+2. Calculate the win rate as the number of wins divided by the total number of bids.
+
+Here is the calculation:
+
+1. **For bid price $0.01:**
+   - Total events = 100000 (win=0) + 0 (win=1) = 100000
+   - Wins = 0
+   - Win Rate = 0 / 100000 = 0%
+
+2. **For bid price $0.1:**
+   - Total events = 7000 (win=0) + 3000 (win=1) = 10000
+   - Wins = 3000
+   - Win Rate = 3000 / 10000 = 30%
+
+3. **For bid price $0.2:**
+   - Total events = 8000000 (win=0) + 2000000 (win=1) = 10000000
+   - Wins = 2000000
+   - Win Rate = 2000000 / 10000000 = 20%
+
+4. **For bid price $0.4:**
+   - Total events = 700000 (win=0) + 300000 (win=1) = 1000000
+   - Wins = 300000
+   - Win Rate = 300000 / 1000000 = 30%
+
+5. **For bid price $0.5:**
+   - Total events = 80000 (win=0) + 20000 (win=1) = 100000
+   - Wins = 20000
+   - Win Rate = 20000 / 100000 = 20%
+
+6. **For bid price $0.75:**
+   - Total events = 7000 (win=0) + 3000 (win=1) = 10000
+   - Wins = 3000
+   - Win Rate = 3000 / 10000 = 30%
+
+7. **For bid price $1:**
+   - Total events = 400 (win=0) + 600 (win=1) = 1000
+   - Wins = 600
+   - Win Rate = 600 / 1000 = 60%
+
+8. **For bid price $2:**
+   - Total events = 30 (win=0) + 70 (win=1) = 100
+   - Wins = 70
+   - Win Rate = 70 / 100 = 70%
+
+9. **For bid price $5:**
+   - Total events = 2 (win=0) + 8 (win=1) = 10
+   - Wins = 8
+   - Win Rate = 8 / 10 = 80%
+
+10. **For bid price $9:**
+    - Total events = 0 (win=0) + 1 (win=1) = 1
+    - Wins = 1
+    - Win Rate = 1 / 1 = 100%
+
+### Summary of Expected Win Rates:
+
+| Bid Price | Win Rate (%) |
+|-----------|--------------|
+| $0.01     | 0%           |
+| $0.1      | 30%          |
+| $0.2      | 20%          |
+| $0.4      | 30%          |
+| $0.5      | 20%          |
+| $0.75     | 30%          |
+| $1        | 60%          |
+| $2        | 70%          |
+| $5        | 80%          |
+| $9        | 100%         |
+
+These win rates are based on the historical data provided in the table.
+
+We can also use ML model to provide the estimated win rate for a bid response at a given price. Let's say we have good enough data then translate this problem as a regression problem
+by considering winrate as output label and bid_price and other attributes(like publisherID, advertiserID) as the features and then we can try using Linear regression or Neural network 
+architectures to estimate the win-rate for any given bid_price.
