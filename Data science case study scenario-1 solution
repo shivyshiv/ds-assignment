@@ -116,4 +116,4 @@ These win rates are based on the historical data provided in the table.
 We can also use ML model to provide the estimated win rate for a bid response at a given price. Let's say we have good enough data then translate this problem as a regression problem
 by considering winrate as output label and bid_price and other attributes(like publisherID, advertiserID) as the features and then we can try using Linear regression or Neural network 
 architectures to estimate the win-rate for any given bid_price.
-I have created a demo linear regression based model -  https://github.com/shivyshiv/ds-assignment/blob/main/DS-case_stury_scenario_1.ipynb
+I have created a demo linear regression based model -  [https://github.com/shivyshiv/ds-assignment/blob/main/DS-case_stury_scenario_1.ipynb]
